@@ -27,7 +27,7 @@ export default function Navbar() {
           <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
         </li>
         <li>
-          <Link href="/about" className="hover:text-yellow-300 transition-colors">Showcase</Link>
+          <Link href="/showcase" className="hover:text-yellow-300 transition-colors">Showcase</Link>
         </li>
         <li>
           <Link href="/battle" className="hover:text-yellow-300 transition-colors">Battles</Link>

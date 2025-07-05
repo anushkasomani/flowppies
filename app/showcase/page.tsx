@@ -21,9 +21,8 @@ export default function HomepagePreview() {
         //   process.env.NEXT_PUBLIC_ALCHEMY_BASE_API_URL
         // );
         if(!walletClient) throw new Error('Wallet client unavailable');
-        const provider = new ethers.BrowserProvider(walletClient.transport);
-        const signer= await provider.getSigner();
-        const contract = new Contract(flowContractAddress, abi, signer);
+        const provider = new ethers.BrowserProvider(walletClient.transport);    
+        const contract = new Contract(flowContractAddress, abi, provider);
         console.log(contract)
         const totalSupply = await contract.totalSupply();
         console.log("Total Supply:", totalSupply.toString());
@@ -74,66 +73,7 @@ export default function HomepagePreview() {
     };
 
     fetchNFTs();
-  }, [isConnected, walletClient,address]);
-
-   const fetchNFTs = async () => {
-      try {
-        setLoading(true);
-        // const provider = new JsonRpcProvider(
-        //   process.env.NEXT_PUBLIC_ALCHEMY_BASE_API_URL
-        // );
-        if(!walletClient) throw new Error('Wallet client unavailable');
-        const provider = new ethers.BrowserProvider(walletClient.transport);
-        const signer= await provider.getSigner();
-        const contract = new Contract(flowContractAddress, abi, signer);
-        console.log(contract)
-        const totalSupply = await contract.totalSupply();
-        console.log("Total Supply:", totalSupply.toString());
-        const nftList = [];
-
-        for (let i = 0; i < Number(totalSupply); i++) {
-          const tokenId = await contract.tokenByIndex(i);
-          const owner = await contract.ownerOf(tokenId);
-          const tokenURI = await contract.tokenURI(tokenId);
-          const multiplier = await contract.tokenIdToMultiplier(tokenId);
-          const formatedMultiplier = (parseFloat(multiplier) / 1e18).toFixed(2);
-          const level = await contract.tokenIdToLevel(tokenId);
-          const formatedLevel = (parseFloat(level) / 1e18).toFixed(0);
-
-          // If IPFS, convert to gateway URL
-          let metadataUrl = tokenURI;
-          if (tokenURI.startsWith("ipfs://")) {
-            metadataUrl = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/");
-          }
-
-          // Fetch metadata
-          let image = "";
-          try {
-            const res = await fetch(metadataUrl);
-            const metadata = await res.json();
-            image = metadata.image || metadata.image_url || "";
-            if (image.startsWith("ipfs://")) {
-              image = image.replace("ipfs://", "https://ipfs.io/ipfs/");
-            }
-          } catch {
-            image = "";
-          }
-
-          nftList.push({
-            tokenId: tokenId.toString(),
-            owner,
-            image,
-            metadataUrl,
-            formatedMultiplier,
-            formatedLevel,
-          });
-        }
-        setNfts(nftList);
-      } catch (err) {
-        console.error("Error fetching NFTs:", err);
-      }
-      setLoading(false);
-    };
+  }, [isConnected,walletClient,address]);
 
   return (
     <div className="relative min-h-screen w-full">
@@ -150,7 +90,7 @@ export default function HomepagePreview() {
             </h2>
             {/* <button onClick={fetchNFTs}>fetch nfts</button> */}
             {loading ? (
-              <div className="text-gray-500">Loading...</div>
+              <div className="text-gray-500">Loading...Make sure your wallet is connected</div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
                 {nfts.map((nft) => (
