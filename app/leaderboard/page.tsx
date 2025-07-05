@@ -16,8 +16,9 @@ export default function TrendingPage() {
   useEffect(() => {
     const fetchLeaderboardData = async () => {
       try {
-        if(!walletClient) throw new Error('Wallet client unavailable');
-        const provider = new ethers.BrowserProvider(walletClient.transport);
+        // if(!walletClient) throw new Error('Wallet client unavailable');
+        // const provider = new ethers.BrowserProvider(walletClient.transport);
+        const provider = new ethers.JsonRpcProvider('https://testnet.evm.nodes.onflow.org')
         const contract = new Contract(flowContractAddress, abi, provider);
         const totalSupply = await contract.totalSupply();
         const nftData = [];
@@ -79,7 +80,7 @@ export default function TrendingPage() {
     };
 
     fetchLeaderboardData();
-  }, [isConnected, address, walletClient]);
+  }, []);
 
   return (
     <div className="relative min-h-screen w-full">

@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "./ui/button";
-import { Download, RotateCcw, MessageCircle } from "lucide-react";
+import { Download, RotateCcw, MessageCircle, Link } from "lucide-react";
 import { useState } from "react";
 import { HistoryItem, HistoryPart } from "@/lib/types";
 import { useAccount } from "wagmi";
@@ -30,7 +30,8 @@ export function ImageResultDisplay({
   const { address, isConnected } = useAccount();
   console.log(isConnected, address);
   const [showHistory, setShowHistory] = useState(false);
-
+  const [isMinted, setIsMinted] = useState(false);
+  const [hash,setHash] = useState("");
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = imageUrl;
@@ -144,6 +145,8 @@ export function ImageResultDisplay({
 
     toast.success("NFT minted successfully!", { id: toastId });
     console.log("Transaction successful:", receipt);
+    setHash(receipt.transactionHash);
+    setIsMinted(true);
   } catch (err: any) {
     console.error(err);
     toast.error(`Error: ${err.message ?? "Something went wrong"}`, {
@@ -203,9 +206,13 @@ export function ImageResultDisplay({
               Create New Image
             </Button>
             <Button onClick={handleMintNFT}
-            className="outline sm bg-[#2D80C0] font-pixelify text-black hover:bg-[#C9C9AA]">
+            className="outline sm bg-[#2D80C0] font-pixelify text-black hover:bg-[#C9C9AA]"
+            disabled={!isConnected || isMinted}>
               Mint NFT
             </Button>
+           {isMinted && (
+            <Link to='/showcase'>See in Showcase</Link>
+           )}
           </div>
         </div>
       </div>

@@ -3,25 +3,42 @@
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   RainbowKitProvider,
-  ConnectButton,
-  getDefaultConfig,
+  connectorsForWallets,
 } from '@rainbow-me/rainbowkit';
-import { WagmiProvider } from 'wagmi';
-import {  flowMainnet, flowTestnet} from 'wagmi/chains';
+import { WagmiProvider, createConfig, http } from 'wagmi';
+import { flowMainnet, flowTestnet } from 'wagmi/chains';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
-
+import { flowWallet } from './flowWallet';
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
 
-  const config = getDefaultConfig({
-    appName: 'Flow App',
-    projectId: 'e872ba5075a2eb7e208dcaeb0bd70e37',
-    chains: [flowMainnet, flowTestnet],
+  const projectId = 'e872ba5075a2eb7e208dcaeb0bd70e37';
+
+  const connectors = connectorsForWallets(
+    [
+      {
+        groupName: 'Flow Wallets',
+        wallets: [flowWallet],
+      },
+    ],
+    {
+      appName: 'Token Tails',
+      projectId,
+    }
+  );
+
+  const config = createConfig({
+    connectors,
+    chains: [flowTestnet, flowMainnet], // Put testnet first for hackathon
     ssr: false,
+    transports: {
+      [flowTestnet.id]: http(),
+      [flowMainnet.id]: http(),
+    },
   });
 
   return (
@@ -46,7 +63,7 @@ export default function Providers({ children }: { children: ReactNode }) {
               },
             },
           }} />
-            {children}
+          {children}
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>

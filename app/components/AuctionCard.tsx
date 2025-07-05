@@ -124,7 +124,7 @@ export default function PetCard({
     const provider = new ethers.BrowserProvider(walletClient.transport);
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(flowContractAddress, abi, signer);
-    const tx = await contract.feed(petId);
+    const tx = await contract.feed(petId, { value: ethers.parseEther("0.01") });
     const receipt = await tx.wait();
     console.log("Transaction successful:", receipt);
     if (receipt.status === 1) {
@@ -154,7 +154,7 @@ export default function PetCard({
     const provider = new ethers.BrowserProvider(walletClient.transport);
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(flowContractAddress, abi, signer);
-    const tx = await contract.train(petId);
+    const tx = await contract.train(petId, { value: ethers.parseEther("0.02") });
     const receipt = await tx.wait();
     console.log("Transaction successful:", receipt);
     if (receipt.status === 1) {
