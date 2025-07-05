@@ -22,15 +22,15 @@ export default function Navbar() {
       </div>
 
       {/* Nav Links */}
-      <ul className="hidden md:flex space-x-40 text-lg font-bold font-press-start-2p text-[#8B4513]">
+      <ul className="hidden md:flex space-x-40 text-xl font-bold font-pixelify text-[#8B4513]">
         <li>
           <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
         </li>
         <li>
-          <Link href="/about" className="hover:text-yellow-300 transition-colors">About</Link>
+          <Link href="/about" className="hover:text-yellow-300 transition-colors">Showcase</Link>
         </li>
         <li>
-          <Link href="/guide" className="hover:text-yellow-300 transition-colors">Guide</Link>
+          <Link href="/battle" className="hover:text-yellow-300 transition-colors">Battles</Link>
         </li>
       </ul>
 

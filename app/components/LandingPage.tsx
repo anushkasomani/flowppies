@@ -31,7 +31,7 @@ export default function LandingPage() {
           <>
             <div className="backdrop-blur-md p-4 rounded-lg inline-block">
               <BlurText
-                text="Token Tails"
+                text="Flowppies"
                 delay={300}
                 animateBy="words"
                 direction="top"
