@@ -2,7 +2,8 @@
 
 # Flowppies - AI-Generated NFT Pets on Flow Blockchain
 
-[image:2]
+<img width="959" alt="01" src="https://github.com/user-attachments/assets/a92a489b-4931-4674-b4b3-3578006eea0b" />
+
 
 ## 🌟 Overview
 
@@ -68,6 +69,24 @@ Token Tails uses Flow's Verifiable Random Function (VRF) for truly fair pet batt
 - **Decentralized Storage**: Irys Network for NFT metadata and images
 - **AI Generation**: Google Gemini 2.0 Flash for image and backstory creation
 - **Metadata Standards**: ERC721-compliant with evolving attributes
+
+
+### Project Stack Overview
+
+
+| Category | Component | Details |
+| :-- | :-- | :-- |
+| Frontend Stack | Framework | Next.js 14 with React 18 |
+| Frontend Stack | Styling | Tailwind CSS for responsive design |
+| Frontend Stack | Web3 Integration | RainbowKit with wagmi for wallet connectivity |
+| Frontend Stack | UI Components | Custom components with Framer Motion animations |
+| Blockchain Infrastructure | Network | Flow Testnet \& Mainnet |
+| Blockchain Infrastructure | Smart Contracts | Solidity-based ERC721 implementation with custom battle mechanics |
+| Blockchain Infrastructure | VRF Integration | Flow's native randomness beacon for fair battle outcomes |
+| Blockchain Infrastructure | Gas Sponsorship | Flow Wallet's automatic fee coverage |
+| Storage \& AI | Decentralized Storage | Irys Network for NFT metadata and images |
+| Storage \& AI | AI Generation | Google Gemini 2.0 Flash for image and backstory creation |
+| Storage \& AI | Metadata Standards | ERC721-compliant with evolving attributes |
 
 
 ## 🎮 How to Play
