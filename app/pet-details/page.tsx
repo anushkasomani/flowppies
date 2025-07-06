@@ -1,17 +1,18 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { flowContractAddress } from "../../utils/contractAddress";
 import abi from "../../utils/abi.json";
 import { useAccount } from "wagmi";
-import { useState, useCallback, useRef } from "react";
+import { useState, useRef } from "react";
 import { toast } from "react-hot-toast";
 import { useWalletClient } from "wagmi";
 import { ethers } from "ethers";
 
-export default function PetDetails() {
+function PetDetailsInner() {
   const { address: currentUserAddress } = useAccount();
   const { data: walletClient } = useWalletClient();
   const searchParams = useSearchParams();
@@ -47,45 +48,6 @@ export default function PetDetails() {
 
   const extractTxId = (url: string) => url.split("/").pop()!;
 
- 
-
-  // const updateMetadata = async (txId: string, changes: any) => {
-  //   const res = await fetch(`https://gateway.irys.xyz/mutable/${txId}`);
-  //   if (!res.ok) throw new Error("Failed to fetch metadata");
-  //   const oldMeta = await res.json();
-
-  //   const updatedAttrs = oldMeta.attributes.map((attr: any) => {
-  //     const updated = changes.attributes?.find((a: any) => a.trait_type === attr.trait_type);
-  //     return updated ? { ...attr, value: parseFloat((parseFloat(attr.value) + updated.value).toFixed(2)) } : attr;
-  //   });
-
-  //   const newMeta = {
-  //     ...oldMeta,
-  //     description: changes.description,
-  //     attributes: updatedAttrs,
-  //   };
-
-  //   const metadataBlob = new Blob([JSON.stringify(newMeta)], { type: "application/json" });
-  //   const metadataFile = new File([metadataBlob], "metadata.json");
-  //   const formData = new FormData();
-  //   formData.append("file", metadataFile);
-  //   formData.append("rootTxId", txId);
-
-  //   const evolveRes = await fetch("/api/irys/evolve-file", {
-  //     method: "POST",
-  //     body: formData,
-  //   });
-
-  //   if (!evolveRes.ok) throw new Error("Evolve failed");
-
-  //   const updatedRes = await fetch(`https://gateway.irys.xyz/mutable/${txId}`);
-  //   if (updatedRes.ok) {
-  //     const newMeta = await updatedRes.json();
-  //     setAttributes(newMeta.attributes || []);
-  //     setPetName(newMeta.name || "Unnamed Pet");
-  //     setCurrentBackstory(newMeta.description);
-  //   }
-  // };
   const updateMetadata = async (txId: string, changes: any) => {
     const res = await fetch(`https://gateway.irys.xyz/mutable/${txId}`);
     if (!res.ok) throw new Error("Failed to fetch metadata");
@@ -151,7 +113,7 @@ export default function PetDetails() {
     return await evolveRes.json();
   };
 
-   const handleEvolvePet = async () => {
+  const handleEvolvePet = async () => {
     if (!walletClient) {
       toast.error("Wallet client unavailable");
       throw new Error("Wallet client unavailable");
@@ -222,9 +184,7 @@ export default function PetDetails() {
     else{
       toast.error("Error in contract interaction", { id: "contract-interaction" });
     }
-    
   }
-
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 py-12 px-4">
@@ -324,9 +284,13 @@ export default function PetDetails() {
             </div>
 
             <div className="mt-6">
-              <button className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed" 
-              onClick={handleEvolvePet}
-              disabled={!isCreator || points < (Number(level) || 1) * 20}>Evolve Pet</button>
+              <button 
+                className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 disabled:bg-gray-400 disabled:cursor-not-allowed" 
+                onClick={handleEvolvePet}
+                disabled={!isCreator || points < (Number(level) || 1) * 20}
+              >
+                Evolve Pet
+              </button>
               {!isCreator && (
                 <p className="text-sm text-red-500 mt-2">
                   Only the creator can evolve this pet.
@@ -334,7 +298,7 @@ export default function PetDetails() {
               )}
               {isCreator && points < (Number(level) || 1) * 20 && (
                 <p className="text-sm text-yellow-600 mt-2">
-                  In sufficient points to evolve{" "}
+                  Insufficient points to evolve{" "}
                 </p>
               )}
             </div>
@@ -342,5 +306,20 @@ export default function PetDetails() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PetDetails() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 py-12 px-4 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600 font-semibold">Loading pet details...</p>
+        </div>
+      </div>
+    }>
+      <PetDetailsInner />
+    </Suspense>
   );
 }
