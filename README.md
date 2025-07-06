@@ -88,6 +88,10 @@ Token Tails uses Flow's Verifiable Random Function (VRF) for truly fair pet batt
 | Storage \& AI | AI Generation | Google Gemini 2.0 Flash for image and backstory creation |
 | Storage \& AI | Metadata Standards | ERC721-compliant with evolving attributes |
 
+### Project Architecture 
+
+![WhatsApp Image 2025-07-06 at 03 24 26_f103800a](https://github.com/user-attachments/assets/3c2b9e10-f7e5-4bb3-9ba8-a8406686549b)
+
 
 ## 🎮 How to Play
 
