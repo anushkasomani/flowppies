@@ -201,6 +201,50 @@ flowppies/
 - **Application**: [Deployed on Vercel](https://flowppies-rosy.vercel.app)
 - **Smart Contract**: [Flow Testnet Explorer](https://evm-testnet.flowscan.io/token/0x9157F94b5027B4943D8c03B303704fA9a9BB135f)
 
+
+
+## 📊 Key Statistics
+
+- **Zero Gas Fees**: All transactions sponsored by Flow Wallet
+- **Instant Randomness**: No oracle delays for battle resolution
+- **Scalable**: Flow's architecture supports high-throughput gaming
+- **Decentralized Storage**: All metadata stored on Irys/IPFS
+
+
+## 🔒 Security Features
+
+- **Verifiable Randomness**: Cryptographically secure battle outcomes
+- **Immutable Ownership**: Blockchain-secured pet ownership
+- **Decentralized Metadata**: No single point of failure for pet data
+- **Audited Libraries**: Built on OpenZeppelin's secure contracts
+
+
+## 🌟 Why Flow Blockchain?
+
+### Developer Benefits
+
+- **Native VRF**: Built-in randomness without external oracles
+- **Gas Sponsorship**: Eliminate user friction with sponsored transactions
+- **High Performance**: Designed for mainstream adoption and gaming
+- **EVM Compatibility**: Deploy Solidity contracts seamlessly
+
+
+### User Benefits
+
+- **No Gas Worries**: Play without managing native tokens
+- **Instant Transactions**: Fast block times and finality
+- **Fair Gameplay**: Provably random battle outcomes
+- **True Ownership**: Decentralized NFT storage and metadata
+
+
+
+## 🎯 Target Audience
+
+- **Web3 Gamers**: Users seeking engaging blockchain-based gaming experiences
+- **NFT Collectors**: Collectors interested in unique, evolving digital assets
+- **AI Enthusiasts**: Users fascinated by AI-generated content and narratives
+
+
 # 🚀 Flowppies Setup \& Installation Guide
 
 ## 📋 Prerequisites
@@ -267,49 +311,6 @@ npm run dev
 yarn dev
 
 ```
-
-
-## 📊 Key Statistics
-
-- **Zero Gas Fees**: All transactions sponsored by Flow Wallet
-- **Instant Randomness**: No oracle delays for battle resolution
-- **Scalable**: Flow's architecture supports high-throughput gaming
-- **Decentralized Storage**: All metadata stored on Irys/IPFS
-
-
-## 🔒 Security Features
-
-- **Verifiable Randomness**: Cryptographically secure battle outcomes
-- **Immutable Ownership**: Blockchain-secured pet ownership
-- **Decentralized Metadata**: No single point of failure for pet data
-- **Audited Libraries**: Built on OpenZeppelin's secure contracts
-
-
-## 🌟 Why Flow Blockchain?
-
-### Developer Benefits
-
-- **Native VRF**: Built-in randomness without external oracles
-- **Gas Sponsorship**: Eliminate user friction with sponsored transactions
-- **High Performance**: Designed for mainstream adoption and gaming
-- **EVM Compatibility**: Deploy Solidity contracts seamlessly
-
-
-### User Benefits
-
-- **No Gas Worries**: Play without managing native tokens
-- **Instant Transactions**: Fast block times and finality
-- **Fair Gameplay**: Provably random battle outcomes
-- **True Ownership**: Decentralized NFT storage and metadata
-
-
-
-## 🎯 Target Audience
-
-- **Web3 Gamers**: Users seeking engaging blockchain-based gaming experiences
-- **NFT Collectors**: Collectors interested in unique, evolving digital assets
-- **AI Enthusiasts**: Users fascinated by AI-generated content and narratives
-
 
 
 
