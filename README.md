@@ -63,6 +63,9 @@ uint256 pet2Power = pet2Stats + ((randomNumber / 1000) % 1000);
 - **Evolution Mechanics**: Level up pets to unlock new abilities and appearances
 - **Leaderboard**: Compete for top rankings based on pet performance
 
+  
+  <img width="736" alt="03" src="https://github.com/user-attachments/assets/8fb4e4d3-b8e7-4cbe-8c14-f231acf81f37" />
+
 
 ## 🏗️ Technical Architecture
 
@@ -127,12 +130,18 @@ uint256 pet2Power = pet2Stats + ((randomNumber / 1000) % 1000);
 - Choose an art style
 - Let AI generate your unique companion
 
+  <img width="724" alt="02" src="https://github.com/user-attachments/assets/75bd09c2-8b7f-4ae1-bc72-0aaa6d89a380" />
+
+
 
 ### 3. Train and Care
 
 - Feed your pet to increase Happiness (+5) and Power (+1)
 - Train your pet for enhanced Power (+5) and Happiness (+1)
 - Watch your pet's multiplier grow with each interaction
+
+  <img width="440" alt="04" src="https://github.com/user-attachments/assets/fb8cd034-1dab-40b8-90aa-568311487b3e" />
+
 
 
 ### 4. Battle Other Pets
