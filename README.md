@@ -183,7 +183,7 @@ flowppies/
 ## 🌐 Live Demo
 
 - **Application**: [Deployed on Vercel](https://flowppies-rosy.vercel.app)
-- **Smart Contract**: [Flow Testnet Explorer](contract-explorer-url)
+- **Smart Contract**: [Flow Testnet Explorer](https://evm-testnet.flowscan.io/token/0x9157F94b5027B4943D8c03B303704fA9a9BB135f)
 
 
 ## 📊 Key Statistics
