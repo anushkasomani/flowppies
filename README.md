@@ -201,6 +201,73 @@ flowppies/
 - **Application**: [Deployed on Vercel](https://flowppies-rosy.vercel.app)
 - **Smart Contract**: [Flow Testnet Explorer](https://evm-testnet.flowscan.io/token/0x9157F94b5027B4943D8c03B303704fA9a9BB135f)
 
+# 🚀 Flowppies Setup \& Installation Guide
+
+## 📋 Prerequisites
+
+Before setting up Flowppies, ensure you have the following installed on your system:
+
+- **Node.js** (v18.0.0 or higher) 
+- **npm** or **yarn** package manager
+- **Git** 
+- **Flow Wallet** browser extension 
+
+
+## 🛠️ Installation Steps
+
+### 1. Clone the Repository
+
+```bash
+git clone 
+cd flowppies
+```
+
+
+### 2. Install Dependencies
+
+Choose your preferred package manager:
+
+#### Using npm:
+
+```bash
+npm install
+```
+
+
+#### Using yarn:
+
+```bash
+yarn install
+```
+
+
+### 3. Environment Configuration
+
+Create a `.env` file in the root directory and add the following environment variables:
+
+```env
+# Required: Google Gemini AI API Key
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Required: Private key for contract deployment and Irys uploads
+PRIVATE_KEY=your_private_key_for_contract_deployment
+
+# Optional: Project name (defaults to "Flowppies")
+NEXT_PUBLIC_PROJECT_NAME=project_name
+
+```
+
+### 4. Development Server
+
+Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+
+```
+
 
 ## 📊 Key Statistics
 
