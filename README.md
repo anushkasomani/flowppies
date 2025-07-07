@@ -32,6 +32,22 @@ Token Tails uses Flow's Verifiable Random Function (VRF)  - a feature exclusive 
 - **Instant Results**: No waiting for oracles
 - **Provably Fair**: Mathematical proof of fairness
 
+  
+
+**Implementation:**
+
+```
+// Get random number from Flow's native VRF
+(bool ok, bytes memory data) = cadenceArch.staticcall(
+    abi.encodeWithSignature("revertibleRandom()")
+);
+uint64 randomNumber = abi.decode(data, (uint64));
+
+// Calculate fair battle outcome
+uint256 pet1Power = pet1Stats + (randomNumber % 1000);
+uint256 pet2Power = pet2Stats + ((randomNumber / 1000) % 1000);
+```
+
 
 ### ⚡ Gasless Experience
 
