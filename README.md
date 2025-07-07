@@ -23,7 +23,7 @@ Flowppies is an innovative Web3 gaming platform that combines AI-generated NFT p
 
 ### 🎲 Flow's Native VRF Integration
 
-Token Tails uses Flow's Verifiable Random Function (VRF) for truly fair pet battles - a feature exclusive to Flow blockchain.
+Token Tails uses Flow's Verifiable Random Function (VRF)  - a feature exclusive to Flow blockchain.
 
 **How It Works:**
 
@@ -62,7 +62,7 @@ Token Tails uses Flow's Verifiable Random Function (VRF) for truly fair pet batt
 
 - **Network**: Flow Testnet \& Mainnet
 - **Smart Contracts**: Solidity-based ERC721 implementation with custom battle mechanics
-- **VRF Integration**: Flow's native randomness beacon for fair battle outcomes
+- **VRF Integration**: Flow's native randomness beacon for fair randomness 
 - **Gas Sponsorship**: Flow Wallet's automatic fee coverage
 
 
