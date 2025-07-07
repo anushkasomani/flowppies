@@ -218,7 +218,7 @@ Before setting up Flowppies, ensure you have the following installed on your sys
 ### 1. Clone the Repository
 
 ```bash
-git clone 
+git clone https://github.com/anushkasomani/flowppies.git
 cd flowppies
 ```
 
