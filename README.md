@@ -170,7 +170,7 @@ flowppies/
 - **Battle Creation**: Any user can create battles between pets
 - **Stake Management**: Users can stake Flow tokens on battle outcomes
 - **VRF Resolution**: Cryptographically fair battle resolution
-- **Reward Distribution**: Automatic payout to winners (70% to stakers, 30% to creator)
+- **Reward Distribution**: Automatic payout to winners (60% to stakers, 30% to creator, 10% to platform)
 
 
 ### Gas Optimization
