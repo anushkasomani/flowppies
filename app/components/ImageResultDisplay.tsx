@@ -167,54 +167,64 @@ export function ImageResultDisplay({
 
         <div className="flex flex-col">
           <div className="p-1 rounded-lg bg-muted">
-            <h1 className="text-2xl text-muted-foreground font-pixelify">
+            <h1 className="text-2xl text-black font-pixelify">
               {petName}
             </h1>
           </div>
 
           <div className="p-1 rounded-lg bg-muted">
-            <h3 className="text-xl font-medium mb-2 font-pixelify">Lore-</h3>
-            <p className="text-md text-muted-foreground font-courier-prime">
+            <h3 className="text-xl font-medium mb-2 font-pixelify text-black">Lore-</h3>
+            <p className="text-md text-black font-courier-prime">
               {backstory}
             </p>
           </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <div className="space-x-2 flex flex-col space-y-2">
-            <Button
-              className="outline sm bg-[#C9C9AA] font-pixelify"
-              onClick={handleDownload}
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download
-            </Button>
-            {conversationHistory.length > 0 && (
-              <Button
-                className="outline sm bg-[#C9C9AA] font-pixelify"
-                onClick={toggleHistory}
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                {showHistory ? "Hide History" : "Show History"}
-              </Button>
-            )}
-            <Button
-              className="outline sm bg-[#C9C9AA] font-pixelify"
-              onClick={onReset}
-            >
-              <RotateCcw className="w-4 h-4 mr-2" />
-              Create New Image
-            </Button>
-            <Button onClick={handleMintNFT}
-            className="outline sm bg-[#2D80C0] font-pixelify text-black hover:bg-[#C9C9AA]"
-            disabled={!isConnected || isMinted}>
-              Mint NFT
-            </Button>
-           {isMinted && (
-            <Link to='/showcase'>See in Showcase</Link>
-           )}
-          </div>
-        </div>
+       <div className="flex items-center justify-between">
+  <div className="space-x-2 flex flex-col space-y-2">
+    {/* Download */}
+    <Button
+      className="bg-[#C9C9AA] text-black font-pixelify hover:bg-[#C9C9AA]/80 transition-colors duration-200"
+      onClick={handleDownload}
+    >
+      <Download className="w-4 h-4 mr-2" />
+      Download
+    </Button>
+
+    {/* Show History */}
+    {conversationHistory.length > 0 && (
+      <Button
+        className="bg-[#C9C9AA] text-black font-pixelify hover:bg-[#C9C9AA]/80 transition-colors duration-200"
+        onClick={toggleHistory}
+      >
+        <MessageCircle className="w-4 h-4 mr-2" />
+        {showHistory ? "Hide History" : "Show History"}
+      </Button>
+    )}
+
+    {/* Reset */}
+    <Button
+      className="bg-[#C9C9AA] text-black font-pixelify hover:bg-[#C9C9AA]/80 transition-colors duration-200"
+      onClick={onReset}
+    >
+      <RotateCcw className="w-4 h-4 mr-2" />
+      Create New Image
+    </Button>
+
+    {/* Mint NFT */}
+    <Button
+      onClick={handleMintNFT}
+      disabled={!isConnected || isMinted}
+      className="bg-[#2D80C0] text-black font-pixelify hover:bg-[#2D80C0]/80 transition-colors duration-200 disabled:opacity-50"
+    >
+      Mint NFT
+    </Button>
+
+    {/* Showcase link */}
+    {isMinted && <Link to="/showcase" className="text-sm underline text-blue-700">See in Showcase</Link>}
+  </div>
+</div>
+
       </div>
 
       {showHistory && conversationHistory.length > 0 && (
@@ -225,7 +235,7 @@ export function ImageResultDisplay({
               <div key={index} className={`p-3 rounded-lg bg-secondary`}>
                 <p
                   className={`text-sm font-medium mb-1 ${
-                    item.role === "user" ? "text-foreground" : "text-primary"
+                    item.role === "user" ? "text-black" : "text-primary"
                   }`}
                 >
                   {item.role === "user" ? "You" : "Gemini"}

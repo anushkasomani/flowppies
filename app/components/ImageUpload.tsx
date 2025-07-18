@@ -83,28 +83,29 @@ export function ImageUpload({ onImageSelect, currentImage, onError }: ImageUploa
     <div className="w-full">
       {!currentImage ? (
         <div
-          {...getRootProps()}
-          className={`min-h-[150px] p-4 rounded-lg
-          ${isDragActive ? "bg-secondary/50" : "bg-secondary"}
-          ${isLoading ? "opacity-50 cursor-wait" : ""}
-          transition-colors duration-200 ease-in-out hover:bg-secondary/50
-          border-2 border-dashed border-secondary
-          cursor-pointer flex items-center justify-center gap-4
-        `}
-        >
-          <input {...getInputProps()} />
-          <div className="flex flex-row items-center" role="presentation">
-            <UploadIcon className="w-8 h-8 text-primary mr-3 flex-shrink-0" aria-hidden="true" />
-            <div className="font-courier-prime">
-              <p className="text-sm font-medium text-foreground">
-                Drop your image here or click to browse
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Maximum file size: 10MB
-              </p>
-            </div>
-          </div>
-        </div>
+  {...getRootProps()}
+  className={`min-h-[150px] p-4 rounded-lg
+    ${isDragActive ? "bg-gray-400" : "bg-null"}
+    ${isLoading ? "opacity-50 cursor-wait" : ""}
+    transition-colors duration-200 ease-in-out hover:bg-gray-100
+    border-2 border-dashed border-black
+    cursor-pointer flex items-center justify-center gap-4
+  `}
+>
+  <input {...getInputProps()} />
+  <div className="flex flex-row items-center" role="presentation">
+    <UploadIcon className="w-8 h-8 text-black mr-3 flex-shrink-0" aria-hidden="true" />
+    <div className="font-courier-prime">
+      <p className="text-sm font-medium text-black">
+        Drop your image here or click to browse
+      </p>
+      <p className="text-xs text-black">
+        Maximum file size: 10MB
+      </p>
+    </div>
+  </div>
+</div>
+
       ) : (
         <div className="flex flex-col items-center p-4 rounded-lg bg-secondary">
           <div className="flex w-full items-center mb-4">
