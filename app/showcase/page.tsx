@@ -7,6 +7,8 @@ import { ethers } from "ethers";
 import {flowContractAddress } from "../../utils/contractAddress";
 import { useWalletClient } from "wagmi";
 import {useAccount} from "wagmi";
+import { getNFT } from "../helper/getNFT";
+
 export default function HomepagePreview() {
   const [nfts, setNfts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -73,7 +75,11 @@ export default function HomepagePreview() {
     };
 
     fetchNFTs();
+    const res= getNFT()
+    console.log(res)
   }, [isConnected,walletClient,address]);
+
+
 
   return (
     <div className="relative min-h-screen w-full">
