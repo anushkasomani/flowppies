@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { ReactNode } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { flowWallet } from './flowWallet';
+import { getNFT } from './helper/getNFT';
 
 export default function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
